@@ -18,3 +18,24 @@ try:
 
 except ValueError as ve:
     print("Error:", ve, "Enter only numbers")
+
+
+# Task 2
+
+def numbers():
+    seq = [1, 2, 3]
+    index = 0
+    while True:
+        yield seq[index]
+        index = (index + 1) % len(seq)
+
+
+try:
+    count = int(input("How many numbers do you want to see? "))
+    output = numbers()
+
+    result = "-".join(str(next(output)) for _ in range(count))
+    print(result)
+
+except ValueError:
+    print("Enter only numbers")
